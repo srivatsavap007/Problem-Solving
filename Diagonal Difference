@@ -1,0 +1,42 @@
+Print the absolute difference between the sums of the matrix's two diagonals as a single integer.
+
+Sample Input
+
+3
+11 2 4
+4 5 6
+10 8 -12
+Sample Output
+
+15
+Explanation
+
+The primary diagonal is:
+
+11
+   5
+     -12
+Sum across the primary diagonal: 11 + 5 - 12 = 4
+
+The secondary diagonal is:
+
+     4
+   5
+10
+Sum across the secondary diagonal: 4 + 5 + 10 = 19
+Difference: |4 - 19| = 15
+
+Note: |x| is the absolute value of x
+Logic:-
+
+public static int diagonalDifference(List<List<Integer>> arr) {
+    // Write your code here
+        int sumd1 = 0; 
+        int sumd2 =0;
+        int topRight = arr.size()-1;
+          for(int i = 0; i < arr.size(); i++) {
+            sumd2 += arr.get(i).get(i);
+            sumd1 += arr.get(i).get(topRight - i);
+          }
+        return Math.abs(sumd2 - sumd1);
+}
